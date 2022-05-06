@@ -11,10 +11,22 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { MainComponent } from './main/main.component';
 import { UserProfileComponent } from './user-profile/user-profile.component';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { NavbarComponent } from './navbar/navbar.component';
+import { MatToolbarModule } from '@angular/material/toolbar';
+import { SecondaryPageComponent } from './secondary-page/secondary-page.component';
 
 @NgModule({
-  declarations: [AppComponent, MainComponent, UserProfileComponent],
+  declarations: [
+    AppComponent,
+    MainComponent,
+    UserProfileComponent,
+    NavbarComponent,
+    SecondaryPageComponent,
+  ],
   imports: [
+    MatToolbarModule,
+
     BrowserModule,
     AppRoutingModule,
     AuthModule.forRoot({
@@ -28,6 +40,7 @@ import { UserProfileComponent } from './user-profile/user-profile.component';
         ],
       },
     }),
+    BrowserAnimationsModule,
   ],
   providers: [
     { provide: HTTP_INTERCEPTORS, useClass: AuthHttpInterceptor, multi: true },
